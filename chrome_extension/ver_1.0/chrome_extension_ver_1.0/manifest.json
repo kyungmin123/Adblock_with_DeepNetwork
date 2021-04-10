@@ -14,11 +14,15 @@
         "webNavigation",
         "https://www.donga.com/*"
 	],
+    "background": {
+        "scripts": ["./js/background.js"]
+    },
+    
     "content_scripts": [
         {
             "matches": ["<all_urls>"],
             "all_frames": true,
-            "js": ["adblock.js"],
+            "js": ["./js/adblock.js"],
             "match_about_blank": true
         }
     ]
