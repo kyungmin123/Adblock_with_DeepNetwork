@@ -4,7 +4,7 @@ function removeAds(){
         chrome.runtime.sendMessage({url: imgs[i].src},
             function (response) {
                 if(response["isAd"] === "no"){
-                    imgs[i].setAttribute("style", "opacity: 0.5;");
+                    imgs[i].setAttribute("style", "opacity: 1;");
                     callback(response);
                 }
                 else if (response["isAd"] === "yes"){

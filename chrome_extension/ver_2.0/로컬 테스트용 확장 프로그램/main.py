@@ -71,5 +71,5 @@ def check():
             return jsonify({"isAd" : "yes"})
 
 if __name__ == '__main__':
-    model = load_model('C:\\Users\\kimkm\\광고\\model\\ad_non_ad_classify.model')
+    model = load_model('./ad_non_ad_classify.model')
     app.run(debug=True, host= '0.0.0.0', port='4000')
