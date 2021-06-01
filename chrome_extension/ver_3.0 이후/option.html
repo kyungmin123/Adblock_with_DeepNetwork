@@ -7,11 +7,22 @@
 </head>
 <body>
     <div id="popupWrapper">
-            <label>RED<input type="checkbox" id="Red" checked></label>
-            <label>GREEN<input type="checkbox" id="Green" checked></label>
-            <label>BLUE<input type="checkbox" id="Blue" checked></label>
-            <button id="save">SAVE</button> 
+        <div id="title">option</div>
+        <div id="introduction"> 가리고 싶은 항목을 체크해주세요. </div>
+        <ul id="optionWrapper">
+            <li class="option">
+                <label>RED<input type="checkbox" id="Red"></label>
+            </li>
+            <li class="option">
+                <label>GREEN<input type="checkbox" id="Green"></label>
+            </li>
+            <li class="option">
+                <label>BLUE<input type="checkbox" id="Blue"></label>
+            </li>
+        </ul>
+        <button id="save">SAVE</button>
     </div>
     <script src="./js/option.js"></script>
+    <link rel="stylesheet" href="./style.css">
 </body>
 </html>
