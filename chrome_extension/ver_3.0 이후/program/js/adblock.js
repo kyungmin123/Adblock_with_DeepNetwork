@@ -17,8 +17,8 @@ function removeAds(){
                     //console.log(`current option1 is ${option1}`);
                     let imgclass = response["class"];
                     if(imgclass === "a" && option1){
-                        //imgs[i].setAttribute("style", "display: none;");
-                        imgs[i].setAttribute("style", "border: 10 solid red");
+                        imgs[i].setAttribute("style", "display: none;");
+                        //imgs[i].setAttribute("style", "border: 10 solid red");
                         callback(response);
                     }
                     else if(imgclass === "b" && option2){
