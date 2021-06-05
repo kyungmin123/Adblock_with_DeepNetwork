@@ -39,6 +39,8 @@ def yes_or_no(url, model):
     image_nparray = np.asarray(bytearray(requests.get(url, verify=False).content), dtype=np.uint8)
     image_bgr = cv2.imdecode(image_nparray, cv2.IMREAD_COLOR)
     image_rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
+    if image_rgb.shape[0] <= 64 || image_rgb.shape[1] <= 64:
+        return "absolute"
     img = cv2.resize(image_rgb, (image_width, image_height))
     
     data = np.asarray(img)
