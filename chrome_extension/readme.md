@@ -47,3 +47,30 @@
 - 목적 도메인에서만 작동하도록 하는 것 (5/3 이후로 동아일보 -> 스포츠조선으로 변경)
 - `NameError: name 'PIL' is not defined`
 - `requests.exceptions.MissingSchema: Invalid URL '': No schema supplied. Perhaps you meant http://?`
+
+## Ver 3.0 (21.06.01)
+
+### 🙆‍♀️ 개선된 것
+
+- 옵션에 따라서 가릴 이미지를 선택할 수 있도록 하기
+- `NameError: name 'PIL' is not defined` -> opencv 이용해서 이미지 열었음
+- `requests.exceptions.MissingSchema: Invalid URL '': No schema supplied. Perhaps you meant http://?` -> 빈 url은 처리하지 않도록 해 줬음
+
+### 🙅‍♀️ 해결하지 못한 것
+
+- 일부 이미지들의 정보 받지 못함. (Div 태그의 background로 삽입되어있는 이미지들, iframe 내부의 일부 이미지들)
+- 목적 도메인에서만 작동하도록 하는 것 (5/3 이후로 동아일보 -> 스포츠조선으로 변경)
+
+## Ver 3.1 (21.06.12)
+
+### 🙆‍♀️ 개선된 것
+
+- Div 태그의 background로 삽입되어있는 이미지들의 url 받아오기
+- 느린 속도 개선 (빈 url의 경우 처리하지 않도록 해 줬음)
+
+### 🙅‍♀️ 해결하지 못한 것
+
+- 일부 이미지들의 정보 받지 못함. (iframe 내부의 일부 이미지들)
+- 목적 도메인에서만 작동하도록 하는 것 (5/3 이후로 동아일보 -> 스포츠조선으로 변경)
+- option 설정화면에서 사용자가 선택했던 대로 표시할 수 있게 하기. (현재는 사용자의 선택과 상관없이 모두 체크되지 않은 채로 보임)
+- (코드 문제..) 이미지 url을 받아오는 함수와 이미지 요소를 가리는 함수 분리해서 중복된 코드 줄이기.
