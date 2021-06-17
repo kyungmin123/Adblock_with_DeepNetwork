@@ -12,47 +12,46 @@ function removeImageAds(){
                 function (response) {
                     let imgclass = response["class"];
                     switch(imgclass){
+                        // 광고:
                         case "a":
                             if (option1){
                                 imgs[i].setAttribute("style", "display: none;");
-                                //imgs[i].setAttribute("style", "border: 10 solid red");
                                 callback(response);
                             }
                             break;
+                        // 광고: 
                         case "b":
                             if (option2){
                                 imgs[i].setAttribute("style", "display: none;");
-                                //imgs[i].setAttribute("style", "border: 10 solid orange");
                                 callback(response);
                             }
                             break;
+                        // 광고: 
                         case "d":
                             if (option3){
                                 imgs[i].setAttribute("style", "display: none;");
-                                //imgs[i].setAttribute("style", "border: 10 solid yellow");
                                 callback(response);
                             }
                             break;
+                        // 광고
                         case "e":
                             if (option4){
                                 imgs[i].setAttribute("style", "display: none;");
-                                //imgs[i].setAttribute("style", "border: 10 solid green");
                                 callback(response);
                             }
                             break;
-                        case "absolute":
+                        // gif -> 무조건 삭제
+                        case "gif":
                             imgs[i].setAttribute("style", "display: none;");
-                            //imgs[i].setAttribute("style", "border: 10 solid purple");
                             callback(response);
                             break;
+                        // 광고 아님
                         case "n":
-                            //imgs[i].setAttribute("style", "display: none;");
-                            //imgs[i].setAttribute("style", "border: 10 solid blue");
+                            imgs[i].setAttribute("style", "display: none;");
                             callback(response);
                             break;
                         default:
-                            mgs[i].setAttribute("style", "display: none;");
-                            //imgs[i].setAttribute("style", "border: 10 solid purple");
+                            imgs[i].setAttribute("style", "display: none;");
                             callback(response);
                             break;
                     }
@@ -67,54 +66,53 @@ function removeDivAds(){
     chrome.storage.sync.get({['op1']: true, ['op2']: true, ['op3']: true, ['op4']: true}, function(items){
         for(let i = 0; i < imgs.length; i++){
             let style = imgs[i].currentStyle || window.getComputedStyle(imgs[i], false);
-            bi = style.backgroundImage.slice(4, -1).replace(/"/g, "");
-            if(!bi)
+            url = style.backgroundImage.slice(4, -1).replace(/"/g, "");
+            if(!url)
                 continue;
-            chrome.runtime.sendMessage({url: bi},
+            chrome.runtime.sendMessage({url: url},
                 function (response) {
                     let imgclass = response["class"];
                     switch(imgclass){
+                        // 광고:
                         case "a":
                             if (option1){
                                 imgs[i].setAttribute("style", "display: none;");
-                                //imgs[i].setAttribute("style", "border: 10 solid red");
                                 callback(response);
                             }
                             break;
+                        // 광고: 
                         case "b":
                             if (option2){
                                 imgs[i].setAttribute("style", "display: none;");
-                                //imgs[i].setAttribute("style", "border: 10 solid orange");
                                 callback(response);
                             }
                             break;
+                        // 광고: 
                         case "d":
                             if (option3){
                                 imgs[i].setAttribute("style", "display: none;");
-                                //imgs[i].setAttribute("style", "border: 10 solid yellow");
                                 callback(response);
                             }
                             break;
+                        // 광고
                         case "e":
                             if (option4){
                                 imgs[i].setAttribute("style", "display: none;");
-                                //imgs[i].setAttribute("style", "border: 10 solid green");
                                 callback(response);
                             }
                             break;
-                        case "absolute":
+                        // gif -> 무조건 삭제
+                        case "gif":
                             imgs[i].setAttribute("style", "display: none;");
-                            //imgs[i].setAttribute("style", "border: 10 solid purple");
                             callback(response);
                             break;
+                        // 광고 아님
                         case "n":
-                            //imgs[i].setAttribute("style", "display: none;");
-                            //imgs[i].setAttribute("style", "border: 10 solid blue");
+                            imgs[i].setAttribute("style", "display: none;");
                             callback(response);
                             break;
                         default:
-                            mgs[i].setAttribute("style", "display: none;");
-                            //imgs[i].setAttribute("style", "border: 10 solid purple");
+                            imgs[i].setAttribute("style", "display: none;");
                             callback(response);
                             break;
                     }
