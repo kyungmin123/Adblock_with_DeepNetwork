@@ -47,7 +47,7 @@ function removeImageAds(){
                             break;
                         // 광고 아님
                         case "n":
-                            imgs[i].setAttribute("style", "display: none;");
+                            //imgs[i].setAttribute("style", "display: none;");
                             callback(response);
                             break;
                         default:
@@ -108,7 +108,7 @@ function removeDivAds(){
                             break;
                         // 광고 아님
                         case "n":
-                            imgs[i].setAttribute("style", "display: none;");
+                            //imgs[i].setAttribute("style", "display: none;");
                             callback(response);
                             break;
                         default:
