@@ -1,10 +1,11 @@
 function removeImageAds(){
     let imgs = document.getElementsByTagName("img");
-    chrome.storage.sync.get({['op1']: true, ['op2']: true, ['op3']: true, ['op4']: true}, function(items){
-        option1 = items.op1;
-        option2 = items.op2;
-        option3 = items.op3;
-        option4 = items.op4;
+    chrome.storage.sync.get({['opA']: true, ['opB']: true, ['opD']: true, ['opE']: true, ['opP']: true}, function(items){
+        optionA = items.opA;
+        optionB = items.opB;
+        optionD = items.opD;
+        optionE = items.opE;
+        optionP = items.opP
         for(let i = 0; i < imgs.length; i++){
             if (!imgs[i].src)
                 continue;
@@ -14,44 +15,59 @@ function removeImageAds(){
                     switch(imgclass){
                         // 광고:
                         case "a":
-                            if (option1){
-                                imgs[i].setAttribute("style", "display: none;");
+                            if (optionA){
+                                imgs[i].remove();
+                                //imgs[i].setAttribute("style", "display: none;");
                                 callback(response);
                             }
                             break;
                         // 광고: 
                         case "b":
-                            if (option2){
-                                imgs[i].setAttribute("style", "display: none;");
+                            if (optionB){
+                                imgs[i].remove();
+                                //imgs[i].setAttribute("style", "display: none;");
                                 callback(response);
                             }
                             break;
                         // 광고: 
                         case "d":
-                            if (option3){
-                                imgs[i].setAttribute("style", "display: none;");
+                            if (optionD){
+                                imgs[i].remove();
+                                //imgs[i].setAttribute("style", "display: none;");
                                 callback(response);
                             }
                             break;
                         // 광고
                         case "e":
-                            if (option4){
-                                imgs[i].setAttribute("style", "display: none;");
+                            if (optionE){
+                                imgs[i].remove();
+                                //imgs[i].setAttribute("style", "display: none;");
+                                callback(response);
+                            }
+                            break;
+                        // 광고: 포토샵
+                        case "p":
+                            if (optionP){
+                                imgs[i].remove();
+                                //imgs[i].setAttribute("style", "display: none;");
                                 callback(response);
                             }
                             break;
                         // gif -> 무조건 삭제
                         case "gif":
-                            imgs[i].setAttribute("style", "display: none;");
+                            imgs[i].remove();
+                            //imgs[i].setAttribute("style", "display: none;");
                             callback(response);
                             break;
                         // 광고 아님
                         case "n":
+                            //imgs[i].remove();
                             //imgs[i].setAttribute("style", "display: none;");
                             callback(response);
                             break;
                         default:
-                            imgs[i].setAttribute("style", "display: none;");
+                            imgs[i].remove();
+                            //imgs[i].setAttribute("style", "display: none;");
                             callback(response);
                             break;
                     }
@@ -75,44 +91,59 @@ function removeDivAds(){
                     switch(imgclass){
                         // 광고:
                         case "a":
-                            if (option1){
-                                imgs[i].setAttribute("style", "display: none;");
+                            if (optionA){
+                                imgs[i].remove();
+                                //imgs[i].setAttribute("style", "display: none;");
                                 callback(response);
                             }
                             break;
                         // 광고: 
                         case "b":
-                            if (option2){
-                                imgs[i].setAttribute("style", "display: none;");
+                            if (optionB){
+                                imgs[i].remove();
+                                //imgs[i].setAttribute("style", "display: none;");
                                 callback(response);
                             }
                             break;
                         // 광고: 
                         case "d":
-                            if (option3){
-                                imgs[i].setAttribute("style", "display: none;");
+                            if (optionD){
+                                imgs[i].remove();
+                                //imgs[i].setAttribute("style", "display: none;");
                                 callback(response);
                             }
                             break;
                         // 광고
                         case "e":
-                            if (option4){
-                                imgs[i].setAttribute("style", "display: none;");
+                            if (optionE){
+                                imgs[i].remove();
+                                //imgs[i].setAttribute("style", "display: none;");
                                 callback(response);
                             }
                             break;
+                        // 광고: 포토샵
+                        case "p":
+                            if (optionP){
+                                imgs[i].remove();
+                                //imgs[i].setAttribute("style", "display: none;");
+                                callback(response);
+                            }
+                            break;    
                         // gif -> 무조건 삭제
                         case "gif":
-                            imgs[i].setAttribute("style", "display: none;");
+                            imgs[i].remove();
+                            //imgs[i].setAttribute("style", "display: none;");
                             callback(response);
                             break;
                         // 광고 아님
                         case "n":
+                            //imgs[i].remove();
                             //imgs[i].setAttribute("style", "display: none;");
                             callback(response);
                             break;
                         default:
-                            imgs[i].setAttribute("style", "display: none;");
+                            imgs[i].remove();
+                            //imgs[i].setAttribute("style", "display: none;");
                             callback(response);
                             break;
                     }
