@@ -1,0 +1,24 @@
+#popupWrapper{
+    margin: 10px;
+    width: 170px;
+}
+
+#title{
+    font-size: 30px;
+}
+
+#introduction{
+    font-weight: bold;
+}
+
+#optionWrapper{
+    list-style-type: none;
+}
+
+.option{
+
+}
+
+#save{
+
+}

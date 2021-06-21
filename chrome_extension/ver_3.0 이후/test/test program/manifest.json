@@ -1,0 +1,33 @@
+{
+    "manifest_version": 2,
+    "name": "AdBlock with Deep Learning",
+    "version": "3.0",
+
+    "description": "Adblock with Deep Learning",
+
+    "permissions": [
+		"tabs",
+        "activeTab",
+        "webNavigation",
+        "storage",
+        "*://*/*"
+	],
+
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "all_frames": true,
+            "js": ["./js/adblock.js"],
+            "match_about_blank": true
+        }
+    ],
+
+    "background": {
+        "scripts": ["./js/background.js"]
+    },
+    
+    "browser_action": {
+        "default_title": "Adblocker with deep Learning",
+        "default_popup": "option.html"
+    }
+}
