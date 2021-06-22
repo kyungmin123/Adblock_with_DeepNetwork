@@ -152,7 +152,7 @@ function removeDivAds(){
                             if (optionB){
                                 imgs[i].style.borderStyle = "Solid";
                                 imgs[i].style.borderWidth = "5px";
-                                imgs[i].style.borderColor = "#5ABEF";
+                                imgs[i].style.borderColor = "#B40431";
                                 //imgs[i].remove();
                                 //imgs[i].setAttribute("style", "display: none;");
                                 callback(response);
