@@ -1,6 +1,7 @@
 document.getElementById('save').addEventListener('click', () => {
     let optionA = document.getElementById('opA').checked;
     let optionB = document.getElementById('opB').checked;
+    let optionC = document.getElementById('opC').checked;
     let optionD = document.getElementById('opD').checked;
     let optionE = document.getElementById('opE').checked;
     let optionP = document.getElementById('opP').checked;
