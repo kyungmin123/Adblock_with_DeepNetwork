@@ -7,6 +7,15 @@ document.getElementById('save').addEventListener('click', () => {
     let optionP = document.getElementById('opP').checked;
 
     chrome.storage.sync.set({['opA']: optionA, ['opB']: optionB, ['opD']: optionD, ['opE']: optionE, ['opP']: optionP}, function(){
-        alert("save!");
+        const btnElement = document.getElementById('save');
+  
+        const html = '<div id="success" style="color:red"> 저장 완료 </div>';
+    
+        btnElement.innerHTML = html;
+
+        setTimeout(function(){
+            document.getElementById('success').remove();
+            document.getElementById('save').innerText = 'SAVE';
+        }, 500)
     })
 });

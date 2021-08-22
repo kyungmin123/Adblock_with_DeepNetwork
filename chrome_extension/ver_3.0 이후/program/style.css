@@ -20,5 +20,9 @@
 }
 
 #save{
-
+    width: 80px;
+    color: #000000;
+    border: #000000 solid 1px;
+    padding: 10px;
+    background-color: #ffffff;
 }
