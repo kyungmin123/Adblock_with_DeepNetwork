@@ -38,7 +38,7 @@ function removeImageAds(){
                             break;
                         // 광고: 교육, 자기계발
                         case "c":
-                            if (optionB){
+                            if (optionC){
                                 imgs[i].style.borderStyle = "Solid";
                                 imgs[i].style.borderWidth = "5px";
                                 imgs[i].style.borderColor = "#5ABEF";
@@ -149,7 +149,7 @@ function removeDivAds(){
                             break;
                         // 광고: 교육, 자기계발
                         case "c":
-                            if (optionB){
+                            if (optionC){
                                 imgs[i].style.borderStyle = "Solid";
                                 imgs[i].style.borderWidth = "5px";
                                 imgs[i].style.borderColor = "#B40431";
@@ -222,6 +222,16 @@ function removeDivAds(){
             );
         }
     });
+}
+
+function removeCanvasAds(){
+    let canvases = document.getElementsByTagName("canvas");
+    for(let i = 0; i < canvases.length; i++){
+        canvases[i].style.borderStyle = "Solid";
+        canvases[i].style.borderWidth = "10px";
+        canvases[i].style.borderColor = "#323232";
+        //canvases[i].remove();
+    }
 }
 
 window.onload = function(){
