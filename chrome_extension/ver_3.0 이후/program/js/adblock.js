@@ -75,9 +75,11 @@ function removeImageAds(){
                             callback(response);
                             break;
                         default:
-                            imgs[i].remove();
-                            //imgs[i].setAttribute("style", "display: none;");
-                            callback(response);
+                            //console.log(imgs[i]);
+                            //imgs[i].remove();
+                            //remove 속성이 정의되지 않은 것으로 나온다. => display: none으로 대체 가능.
+                            imgs[i].setAttribute("style", "display: none;");
+                            //callback(response);
                             break;
                     }
                 }
@@ -159,9 +161,11 @@ function removeDivAds(){
                             callback(response);
                             break;
                         default:
-                            imgs[i].remove();
-                            //imgs[i].setAttribute("style", "display: none;");
-                            callback(response);
+                            console.log(imgs[i]);
+                            //imgs[i].remove();
+                            //remove 속성이 정의되지 않은 것으로 나온다. => display: none으로 대체 가능.
+                            imgs[i].setAttribute("style", "display: none;");
+                            //callback(response);
                             break;
                     }
                 }
