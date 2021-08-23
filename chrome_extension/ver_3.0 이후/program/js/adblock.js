@@ -174,6 +174,13 @@ function removeDivAds(){
     });
 }
 
+function removeCanvasAds(){
+    let canvases = document.getElementsByTagName("canvas");
+    for(let i = 0; i < canvases.length; i++){
+        canvases[i].remove();
+    }
+}
+
 /*
 function nodeInsertedCallback(){
     removeImageAds();
