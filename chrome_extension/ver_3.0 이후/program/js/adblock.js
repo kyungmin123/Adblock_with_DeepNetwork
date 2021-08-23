@@ -8,16 +8,23 @@ function removeImageAds(){
         optionE = items.opE;
         optionP = items.opP;
         for(let i = 0; i < imgs.length; i++){
-            if (!imgs[i].src)
-                continue;
-            chrome.runtime.sendMessage({url: imgs[i].src},
+            imgurl = "";
+            if (!imgs[i].src){
+                if (imgs[i].getAttributeNames('adfit-main-img-url'))
+                    imgurl = imgs[i].getAttributeNames('adfit-main-img-url');
+                else
+                    comtinue;
+            }
+            imgurl = imgs[i].src
+            chrome.runtime.sendMessage({url: imgurl},
                 function (response) {
                     let imgclass = response["class"];
                     switch(imgclass){
                         // 광고: 병원, 뷰티, 건강보조
                         case "a":
                             if (optionA){
-                                imgs[i].remove();
+                                if(imgs[i])
+                                    imgs[i].remove();
                                 //imgs[i].setAttribute("style", "display: none;");
                                 callback(response);
                             }
