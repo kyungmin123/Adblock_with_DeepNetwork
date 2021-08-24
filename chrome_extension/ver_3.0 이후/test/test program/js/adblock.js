@@ -19,7 +19,7 @@ function removeImageAds(){
                             if (optionA){
                                 imgs[i].style.borderStyle = "Solid";
                                 imgs[i].style.borderWidth = "5px";
-                                imgs[i].style.borderColor = "#0000FF";
+                                imgs[i].style.borderColor = "#0000FF"; // 파란색
                                 //imgs[i].remove();
                                 //imgs[i].setAttribute("style", "display: none;");
                                 callback(response);
@@ -30,7 +30,7 @@ function removeImageAds(){
                             if (optionB){
                                 imgs[i].style.borderStyle = "Solid";
                                 imgs[i].style.borderWidth = "5px";
-                                imgs[i].style.borderColor = "#006400";
+                                imgs[i].style.borderColor = "#006400"; // 초록색
                                 //imgs[i].remove();
                                 //imgs[i].setAttribute("style", "display: none;");
                                 callback(response);
@@ -41,7 +41,7 @@ function removeImageAds(){
                             if (optionC){
                                 imgs[i].style.borderStyle = "Solid";
                                 imgs[i].style.borderWidth = "5px";
-                                imgs[i].style.borderColor = "#5ABEF";
+                                imgs[i].style.borderColor = "#a30000"; // 빨간색
                                 //imgs[i].remove();
                                 //imgs[i].setAttribute("style", "display: none;");
                                 callback(response);
@@ -52,7 +52,7 @@ function removeImageAds(){
                             if (optionD){
                                 imgs[i].style.borderStyle = "Solid";
                                 imgs[i].style.borderWidth = "5px";
-                                imgs[i].style.borderColor = "#FF1493";
+                                imgs[i].style.borderColor = "#FF1493";  // 분홍색
                                 //imgs[i].remove();
                                 //imgs[i].setAttribute("style", "display: none;");
                                 callback(response);
@@ -63,7 +63,7 @@ function removeImageAds(){
                             if (optionE){
                                 imgs[i].style.borderStyle = "Solid";
                                 imgs[i].style.borderWidth = "5px";
-                                imgs[i].style.borderColor = "#9400D3";
+                                imgs[i].style.borderColor = "#9400D3"; // 보라색
                                 //imgs[i].remove();
                                 //imgs[i].setAttribute("style", "display: none;");
                                 callback(response);
@@ -74,7 +74,7 @@ function removeImageAds(){
                             if (optionP){
                                 imgs[i].style.borderStyle = "Solid";
                                 imgs[i].style.borderWidth = "10px";
-                                imgs[i].style.borderColor = "#FFA500";
+                                imgs[i].style.borderColor = "#FFA500"; // 노란색
                                 //imgs[i].remove();
                                 //imgs[i].setAttribute("style", "display: none;");
                                 callback(response);
@@ -84,7 +84,7 @@ function removeImageAds(){
                         case "absolute":
                             imgs[i].style.borderStyle = "Solid";
                             imgs[i].style.borderWidth = "10px";
-                            imgs[i].style.borderColor = "#66F8F0";
+                            imgs[i].style.borderColor = "#66F8F0"; // 하늘색
                             //imgs[i].remove();
                             //imgs[i].setAttribute("style", "display: none;");
                             callback(response);
@@ -93,7 +93,7 @@ function removeImageAds(){
                         case "n":
                             imgs[i].style.borderStyle = "Solid";
                             imgs[i].style.borderWidth = "10px";
-                            imgs[i].style.borderColor = "#A0A0FF";
+                            imgs[i].style.borderColor = "#A0A0FF"; // 얀보라색
                             //imgs[i].remove();
                             //imgs[i].setAttribute("style", "display: none;");
                             callback(response);
@@ -101,7 +101,7 @@ function removeImageAds(){
                         default:
                             imgs[i].style.borderStyle = "Solid";
                             imgs[i].style.borderWidth = "10px";
-                            imgs[i].style.borderColor = "#323232";
+                            imgs[i].style.borderColor = "#323232"; // 회색
                             //imgs[i].remove();
                             //imgs[i].setAttribute("style", "display: none;");
                             callback(response);
@@ -130,7 +130,7 @@ function removeDivAds(){
                             if (optionA){
                                 imgs[i].style.borderStyle = "Solid";
                                 imgs[i].style.borderWidth = "5px";
-                                imgs[i].style.borderColor = "#0000FF";
+                                imgs[i].style.borderColor = "#0000FF"; // 파란색
                                 //imgs[i].remove();
                                 //imgs[i].setAttribute("style", "display: none;");
                                 callback(response);
@@ -141,7 +141,7 @@ function removeDivAds(){
                             if (optionB){
                                 imgs[i].style.borderStyle = "Solid";
                                 imgs[i].style.borderWidth = "5px";
-                                imgs[i].style.borderColor = "#006400";
+                                imgs[i].style.borderColor = "#006400"; // 초록색
                                 //imgs[i].remove();
                                 //imgs[i].setAttribute("style", "display: none;");
                                 callback(response);
@@ -152,7 +152,7 @@ function removeDivAds(){
                             if (optionC){
                                 imgs[i].style.borderStyle = "Solid";
                                 imgs[i].style.borderWidth = "5px";
-                                imgs[i].style.borderColor = "#B40431";
+                                imgs[i].style.borderColor = "#a30000"; // 빨간색
                                 //imgs[i].remove();
                                 //imgs[i].setAttribute("style", "display: none;");
                                 callback(response);
@@ -163,7 +163,7 @@ function removeDivAds(){
                             if (optionD){
                                 imgs[i].style.borderStyle = "Solid";
                                 imgs[i].style.borderWidth = "5px";
-                                imgs[i].style.borderColor = "#FF1493";
+                                imgs[i].style.borderColor = "#FF1493"; // 분홍색
                                 //imgs[i].remove();
                                 //imgs[i].setAttribute("style", "display: none;");
                                 callback(response);
@@ -174,7 +174,7 @@ function removeDivAds(){
                             if (optionE){
                                 imgs[i].style.borderStyle = "Solid";
                                 imgs[i].style.borderWidth = "5px";
-                                imgs[i].style.borderColor = "#9400D3";
+                                imgs[i].style.borderColor = "#9400D3"; // 보라색
                                 //imgs[i].remove();
                                 //imgs[i].setAttribute("style", "display: none;");
                                 callback(response);
@@ -185,7 +185,7 @@ function removeDivAds(){
                             if (optionP){
                                 imgs[i].style.borderStyle = "Solid";
                                 imgs[i].style.borderWidth = "10px";
-                                imgs[i].style.borderColor = "#FFA500";
+                                imgs[i].style.borderColor = "#FFA500"; // 노란색
                                 //imgs[i].remove();
                                 //imgs[i].setAttribute("style", "display: none;");
                                 callback(response);
@@ -195,7 +195,7 @@ function removeDivAds(){
                         case "absolute":
                             imgs[i].style.borderStyle = "Solid";
                             imgs[i].style.borderWidth = "10px";
-                            imgs[i].style.borderColor = "#66F8F0";
+                            imgs[i].style.borderColor = "#66F8F0"; // 하늘색
                             //imgs[i].remove();
                             //imgs[i].setAttribute("style", "display: none;");
                             callback(response);
@@ -204,7 +204,7 @@ function removeDivAds(){
                         case "n":
                             imgs[i].style.borderStyle = "Solid";
                             imgs[i].style.borderWidth = "10px";
-                            imgs[i].style.borderColor = "#A0A0FF";
+                            imgs[i].style.borderColor = "#A0A0FF"; // 연보라색
                             //imgs[i].remove();
                             //imgs[i].setAttribute("style", "display: none;");
                             callback(response);
@@ -212,7 +212,7 @@ function removeDivAds(){
                         default:
                             imgs[i].style.borderStyle = "Solid";
                             imgs[i].style.borderWidth = "10px";
-                            imgs[i].style.borderColor = "#323232";
+                            imgs[i].style.borderColor = "#323232"; // 회색
                             //imgs[i].remove();
                             //imgs[i].setAttribute("style", "display: none;");
                             callback(response);
@@ -228,8 +228,8 @@ function removeCanvasAds(){
     let canvases = document.getElementsByTagName("canvas");
     for(let i = 0; i < canvases.length; i++){
         canvases[i].style.borderStyle = "Solid";
-        canvases[i].style.borderWidth = "10px";
-        canvases[i].style.borderColor = "#323232";
+        canvases[i].style.borderWidth = "15px";
+        canvases[i].style.borderColor = "#66F8F0"; // 하늘색
         //canvases[i].remove();
     }
 }
