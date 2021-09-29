@@ -1,0 +1,28 @@
+{
+    "manifest_version": 2,
+    "name": "(test) ABwDN (Binary/Categorical Binary)",
+    "version": "5.0",
+
+    "description": "Adblock with Deep Learning",
+
+    "permissions": [
+		"tabs",
+        "activeTab",
+        "webNavigation",
+        "storage",
+        "*://*/*"
+	],
+
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "all_frames": true,
+            "js": ["./js/adblock.js"],
+            "match_about_blank": true
+        }
+    ],
+
+    "background": {
+        "scripts": ["./js/background.js"]
+    }
+}
