@@ -3,12 +3,13 @@ function removeImageAds(){
     for(let i = 0; i < imgs.length; i++){
         imgurl = "";
         if (!imgs[i].src){
-            if (imgs[i].getAttributeNames('adfit-main-img-url'))
-                imgurl = imgs[i].getAttributeNames('adfit-main-img-url');
-            else
+            if (!imgs[i].getAttributeNames('adfit-main-img-url'))
                 continue;
+            else
+                imgurl = imgs[i].getAttributeNames('adfit-main-img-url');
         }
-        imgurl = imgs[i].src
+        else
+            imgurl = imgs[i].src
         chrome.runtime.sendMessage({url: imgurl},
             function (response) {
                 let result = response["class"];
