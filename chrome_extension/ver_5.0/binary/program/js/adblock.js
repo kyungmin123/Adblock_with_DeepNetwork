@@ -5,24 +5,25 @@ function removeImageAds(){
         if (!imgs[i])
             continue;
         if (imgs[i].src == ""){
-            if (imgs[i].getAttributeNames('adfit-main-img-url'))
-                imgurl = imgs[i].getAttributeNames('adfit-main-img-url');
-            else
+            if (!imgs[i].getAttributeNames('adfit-main-img-url'))
                 continue;
+            else
+                imgurl = imgs[i].getAttributeNames('adfit-main-img-url');
         }
-        imgurl = imgs[i].src
+        else
+            imgurl = imgs[i].src
         chrome.runtime.sendMessage({url: imgurl},
             function (response) {
                 let result = response["class"];
                 switch(result){
                     // 광고인 경우
                     case "ad":
-                        imgs[i].remove();
+                        imgs[i].style.display = 'none';
                         callback(response);
                         break;
                     // 무조건 삭제하는 경우
                     case "absolute":
-                        imgs[i].remove();
+                        imgs[i].style.display = 'none';
                         callback(response);
                         break;
                     // 광고 아님
@@ -31,7 +32,7 @@ function removeImageAds(){
                         break;
                     // 기타
                     default:
-                        imgs[i].setAttribute("style", "display: none;");
+                        imgs[i].style.display = 'none';
                         callback(response);
                         break;
                 }
@@ -55,12 +56,12 @@ function removeDivAds(){
                 switch(result){
                     // 광고인 경우
                     case "ad":
-                        divs[i].remove();
+                        divs[i].style.display = 'none';
                         callback(response);
                         break;
                     // 무조건 삭제하는 경우
                     case "absolute":
-                        divs[i].remove();
+                        divs[i].style.display = 'none';
                         callback(response);
                         break;
                     // 광고 아님
@@ -69,7 +70,7 @@ function removeDivAds(){
                         break;
                     // 기타
                     default:
-                        divs[i].setAttribute("style", "display: none;");
+                        divs[i].style.display = 'none';
                         callback(response);
                         break;
                 }
@@ -81,7 +82,7 @@ function removeDivAds(){
 function removeCanvasAds(){
     let canvases = document.getElementsByTagName("canvas");
     for(let i = 0; i < canvases.length; i++){
-        canvases[i].remove();
+        canvases[i].style.display = 'none';
     }
 }
 
