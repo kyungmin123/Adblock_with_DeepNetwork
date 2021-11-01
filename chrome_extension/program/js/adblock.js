@@ -4,12 +4,6 @@ function removeImageAds(){
         imgurl = "";
         if (!imgs[i])
             continue;
-        if (imgs[i].src == ""){
-            if (!imgs[i].getAttributeNames('adfit-main-img-url'))
-                continue;
-            else
-                imgurl = imgs[i].getAttributeNames('adfit-main-img-url');
-        }
         else
             imgurl = imgs[i].src
         chrome.runtime.sendMessage({url: imgurl},
@@ -44,10 +38,10 @@ function removeImageAds(){
 function removeDivAds(){
     let divs = document.getElementsByTagName("div");
     for(let i = 0; i < divs.length; i++){
-        let style = divs[i].currentStyle || window.getComputedStyle(divs[i], false);
-        url = style.backgroundImage.slice(4, -1).replace(/"/g, "");
         if (!divs[i])
             continue;
+        let style = divs[i].currentStyle || window.getComputedStyle(divs[i], false);
+        url = style.backgroundImage.slice(4, -1).replace(/"/g, "");
         if(url == "")
             continue;
         chrome.runtime.sendMessage({url: url},
