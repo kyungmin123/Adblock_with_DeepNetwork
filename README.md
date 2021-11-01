@@ -54,7 +54,7 @@
 
 [CHROME EXTENSION](https://github.com/kyungmin123/Adblock_with_DeepNetwork/tree/main/chrome_extension) : 크롬 확장 프로그램
 
-[API]() : Deep Learning Model API
+[API](https://github.com/kyungmin123/Adblock_with_DeepNetwork/tree/main/API) : Deep Learning Model API
 
 [Deep_learning_study](https://github.com/kyungmin123/Adblock_with_DeepNetwork/tree/main/Deep_learning_study) : 프로젝트 시작 전 사전 스터디 내용 기록
 
