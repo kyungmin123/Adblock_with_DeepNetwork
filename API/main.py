@@ -18,12 +18,6 @@ import urllib.request
 import requests
 from io import BytesIO
 
-# from PIL import UnidentifiedImageError # 사진 못 받아왔을 때 에러 except
-# from PIL import Image
-# from PIL import ImageFile
-
-# ImageFile.LOAD_TRUNCATED_IMAGES = True # 잘린 이미지 수복 (OS Error truncated)
-
 app = Flask(__name__)
 api = Api(app)
 CORS(app)
@@ -38,49 +32,6 @@ def yes_or_no(url, model):
     X = []
 
     res = requests.get(url)
-    
-#     try:
-#         img = Image.open(BytesIO(res.content))
-        
-#         img = img.convert("RGB")
-#         img = img.resize((image_w, image_h))
-#         data = np.asarray(img)
-
-#         X.append(data)
-
-#         X = np.array(X)
-#         X = X.astype(float) / 255
-
-#         print(url)
-
-#         prediction = model.predict(X)
-
-#         if prediction >= 0.5:
-#             return 1
-#         else :
-#             return 0
-
-#     except PIL.UnidentifiedImageError:
-#         return -1
-    
-    
-#     try:
-
-
-#     img = Image.open(BytesIO(res.content))
-    
-
-#     with open(url, 'rb') as f:
-#         data = f.read()
-#     encoded_img = np.fromstring(data, dtype = np.uint8)
-#     img_bgr = cv2.imdecode(encoded_img, cv2.IMREAD_COLOR)  
-    
-
-# #     image_bgr = cv2.imread(img, cv2.IMREAD_COLOR)
-#     image_rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
-
-#     img = cv2.resize(image_rgb, (image_width, image_height))
-#     data = np.asarray(img)
 
     image_nparray = np.asarray(bytearray(requests.get(url).content), dtype=np.uint8)
     image_bgr = cv2.imdecode(image_nparray, cv2.IMREAD_COLOR)
