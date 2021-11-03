@@ -28,10 +28,7 @@
 3. 페이지의 이미지를 사용한 태그들에서 이미지 src를 수집한다.
 4. 링크에서 이미지를 열어 모델에 입력한다.
 5. 모델의 결과에 따라서 이미지를 가리거나, 유지한다.
-## Model
-(최종적으로 적용된 파라미터들?)
 
-(정보들?)
 ## Result
 ### Before & After
 #### 실행 전
@@ -50,7 +47,7 @@
 
 # Folder
 
-[MODEL]()
+[AI](https://github.com/kyungmin123/Adblock_with_DeepNetwork/tree/main/AI) : 모델 코드 저장소
 
 [CHROME EXTENSION](https://github.com/kyungmin123/Adblock_with_DeepNetwork/tree/main/chrome_extension) : 크롬 확장 프로그램
 
