@@ -8,23 +8,23 @@
 ---
 
 + 테스트 결과
- + Layers = 8
- + Image size = 원본 : 180, 180 / 분할된 이미지 : 90, 90
- + Epoch = 40
- + Batch size = 32
- + Dropout = 0.15
- + Optimizer = rms
- + Learning rate = 0.009
+  + Layers = 8
+  + Image size = 원본 : 180, 180 / 분할된 이미지 : 90, 90
+  + Epoch = 40
+  + Batch size = 32
+  + Dropout = 0.15
+  + Optimizer = rms
+  + Learning rate = 0.009
 + 정확도 : 89%
 
 ### __이진 카테고리 분류 - categorical binary cnn__###
 ---
 
 + 테스트 결과
- + Layers = 8
- + Image size = 원본 : 280, 280 / 분할된 이미지 : 140, 140
- + Epoch = 40
- + Batch size = 64
- + Dropout = 0.1
- + Optimizer = rms
+  + Layers = 8
+  + Image size = 원본 : 280, 280 / 분할된 이미지 : 140, 140
+  + Epoch = 40
+  + Batch size = 64
+  + Dropout = 0.1
+  + Optimizer = rms
 + 정확도 : 48.49% (광고/비광고 정확도), 11.11%(카테고리 개별 정확도)
