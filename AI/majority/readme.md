@@ -12,10 +12,10 @@
   + Image size = 원본 : 180, 180 / 분할된 이미지 : 90, 90
   + Epoch = 40
   + Batch size = 32
-  + Dropout = 0.15
+  + Dropout = 0 (batch normalization으로 대체)
   + Optimizer = rms
   + Learning rate = 0.009
-+ 정확도 : 89%
++ 정확도 : 93.27%
 
 ### __이진 카테고리 분류 - categorical binary cnn__###
 ---
