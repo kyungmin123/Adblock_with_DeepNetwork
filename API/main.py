@@ -22,70 +22,95 @@ app = Flask(__name__)
 api = Api(app)
 CORS(app)
 
-model = load_model('./multi_cnn/binary_model_saved.h5')
+model = load_model('./binary_cnn/binary_model_saved.h5') # 경로 수정
 
-def yes_or_no(url, model):
+def image_crop(file, image_width, image_height, cropped_width, cropped_height):
+    cropped_images = []
+    x = 0
+    x_center = image_width // 2
+    y_center = image_height // 2
     
-    image_width = 64
-    image_height = 64
+    while x < image_width:
+        y = 0
+        while y < image_height:
+            cropped_image = file[x : x + cropped_width, y : y + cropped_height]
+            cropped_images.append(cropped_image)
+            y += cropped_height
+        x += cropped_width
+    
+    center_image = file[x_center - cropped_width // 2 : x_center + cropped_width // 2,
+                       y_center - cropped_height // 2 : y_center + cropped_height // 2]
+    
+    cropped_images.append(center_image)
+    
+    return cropped_images
 
+def binary(url, model):
+    
+    image_width = 180
+    image_height = 180
+
+    is_ad = 0
+    not_ad = 0
+    
     X = []
-
-    res = requests.get(url)
-
-    image_nparray = np.asarray(bytearray(requests.get(url).content), dtype=np.uint8)
-    image_bgr = cv2.imdecode(image_nparray, cv2.IMREAD_COLOR)
-    image_rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
-    img = cv2.resize(image_rgb, (image_width, image_height))
+    cropped_images = []
     
-    data = np.asarray(img)
-    X.append(data)
+    # 이미지가 명백히 gif 형식일 경우 -> 무조건 제거한다.
+    if ".gif" in url:
+        return "absolute"
+    # 이미지가 명백히 .svg 형식일 경우 -> ?
+    elif ".svg" in url:
+        return "non-ad"
+    # 이 외의 경우에는 이미지를 연다. (binary)
+    else:
+        image_nparray = np.asarray(bytearray(requests.get(url, verify=False).content), dtype=np.uint8)
+    
+    # binary 형태로 읽은 파일을 decode -> 1D-array에서 3D-array로 변경
+    image_bgr = cv2.imdecode(image_nparray, cv2.IMREAD_COLOR)
+    # BGR에서 RGB로 변경
+    image_rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
+    
+    # 이미지가 너무 작은 경우 -> 무조건 제거한다.
+    if image_rgb.shape[0] < 64 | image_rgb.shape[1] < 64:
+        return "absolute"
+
+    img = cv2.resize(image_rgb, (image_width, image_height), interpolation=cv2.INTER_LINEAR)
+
+    cropped_images = image_crop(img, image_width, image_height, image_width // 2, image_height //2)
+
+    for cropped_image in cropped_images:
+        data = np.asarray(cropped_image)
+        X.append(data)
+        
+    #data = np.asarray(img)
+    #X.append(data)
 
     X = np.array(X)
     X = X.astype(float) / 255
 
-    print(url)
-
     prediction = model.predict(X)
-    pre_ans = prediction.argmax()
-    pre_ans_str = ''
+    prediction = np.round(prediction)
 
-    if pre_ans == 0 or pre_ans == 1 or pre_ans == 2 or pre_ans == 3 or pre_ans == 4 or pre_ans == 5 or pre_ans == 6 or pre_ans == 7:
-        pre_ans_str = "class a"
-    elif pre_ans == 8:
-        pre_ans_str = "class b"
-    elif pre_ans == 9 or pre_ans == 10 or pre_ans == 11 or pre_ans == 12 or pre_ans == 13 or pre_ans == 14 or pre_ans == 15 or pre_ans == 16 or pre_ans == 17 or pre_ans == 18:
-        pre_ans_str = "class d"
-    elif pre_ans == 19:
-        pre_ans_str = "class e"
+    for p in prediction:
+        if p == 0:
+            is_ad += 1
+        elif p ==1:
+            not_ad += 1
+    
+    if is_ad > not_ad:
+        return 0
     else:
-        pre_ans_str = "non_ad"
-
-        
-        
-    if pre_ans_str == "class a":
-        return 'a'
-    elif pre_ans_str == "class b":
-        return 'b'
-    elif pre_ans_str == "class d":
-        return 'd'
-    elif pre_ans_str == "calss e":
-        return 'e'
-    else:
-        return 'n'
-        
-        
-#         except:
-#             pass
+        return 1
         
 @app.route("/",methods=['GET','POST'])
 def check():
     if request.method=='GET':
         
         url = request.args.get('url')
-        result = yes_or_no(url, model)
+        result = binary(url, model)
         
-        if result == 'a':
+        if result == 'a':           ## result 수정
             config = {"class": "a"}
         elif result == 'b':
             config = {"class": "b"}
