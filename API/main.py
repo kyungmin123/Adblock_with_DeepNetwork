@@ -22,7 +22,7 @@ app = Flask(__name__)
 api = Api(app)
 CORS(app)
 
-model = load_model('./binary_cnn/binary_model_saved.h5') # 경로 수정
+model = load_model('./binary_cnn/binary_model_saved180.h5') # 경로 수정
 
 def image_crop(file, image_width, image_height, cropped_width, cropped_height):
     cropped_images = []
@@ -110,19 +110,15 @@ def check():
         url = request.args.get('url')
         result = binary(url, model)
         
-        if result == 'a':           ## result 수정
-            config = {"class": "a"}
-        elif result == 'b':
-            config = {"class": "b"}
-        elif result == 'd':
-            config = {"class": "d"}
-        elif result == 'e':
-            config = {"class": "e"}
-        elif result == 'n':
-            config = {"class": "n"}
+        if result == 0:           ## result 수정
+            config = {"class": "ad"}
+        elif result == "absolute":
+            config = {"class": "absolute"}
+        elif result == "non-ad":
+            config = {"class": "non-ad"}
         else:
-            config = {"class": "n"}
-            
+            config = {"class": "non-ad"}
+
         result = json.dumps(config, ensure_ascii=False)
         
         return result
