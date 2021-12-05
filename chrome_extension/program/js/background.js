@@ -1,6 +1,6 @@
 chrome.runtime.onMessage.addListener(
     function (request, sender, sendResponse) {
-	let url = 'https://img-option.herokuapp.com/?url=' + request.url;
+	let url = 'https://ad-or-not.herokuapp.com/?url=' + request.url;
         fetch(url)
 	.then(response => response.json())
         .then(response => sendResponse(response))
