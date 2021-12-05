@@ -22,7 +22,7 @@ app = Flask(__name__)
 api = Api(app)
 CORS(app)
 
-model = load_model('./binary_cnn/binary_model_saved180.h5') # 경로 수정
+model = load_model('./binary_cnn/binary_model_saved0.h5') # 경로 수정
 
 def image_crop(file, image_width, image_height, cropped_width, cropped_height):
     cropped_images = []
@@ -64,10 +64,19 @@ def binary(url, model):
         return "non-ad"
     # 이 외의 경우에는 이미지를 연다. (binary)
     else:
-        image_nparray = np.asarray(bytearray(requests.get(url, verify=False).content), dtype=np.uint8)
-    
+        try:
+            image_nparray = np.asarray(bytearray(requests.get(url, verify=False).content), dtype=np.uint8)
+        # 이미지 경로가 잘못된 경우 제거한다.
+        except:
+            return "absolute"
+    # 보안 문제로 인해 열리지 않는 경우 제거
+    if image_nparray.size == 0:
+        return "absolute"
     # binary 형태로 읽은 파일을 decode -> 1D-array에서 3D-array로 변경
     image_bgr = cv2.imdecode(image_nparray, cv2.IMREAD_COLOR)
+    # 보안 문제로 인해 열리지 않는 경우 제거
+    if image_bgr is None:
+        return "absolute"
     # BGR에서 RGB로 변경
     image_rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
     
